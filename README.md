@@ -16,7 +16,7 @@ MakeCode에서 이 저장소를 편집합니다.
 
 * [https://makecode.microbit.org/](https://makecode.microbit.org/) 열기
 * **가져오기**를 클릭한 다음 **가져오기 URL**를 클릭합니다
-* **https://github.com/trifa0527/gyro**를 붙여넣고 가져오기를 클릭하세요.
+* ** https://github.com/trifa0527/gyro **를 붙여넣고 가져오기를 클릭하세요.
 
 ## 블록 미리보기
 
