@@ -6,7 +6,7 @@ function gyro_graph () {
         128,
         32
         )
-        OLED.writeString("                    " + xyzc)
+        sxyz(xyzc)
         chgyro = xyz
         for (let index = 0; index <= 128; index++) {
             gyroi = gyroi / 30 + 32
@@ -109,7 +109,7 @@ function gyro_info () {
 function gyro_bar () {
     while (true) {
         gyroi = gyroi / 19
-        OLED.writeString(xyzc)
+        sxyz(xyzc)
         OLED.drawLine(
         64,
         32,
@@ -133,6 +133,9 @@ input.onButtonPressed(Button.B, function () {
         lselect = 1
     }
 })
+function sxyz (문자열: string) {
+    OLED.writeString("                    " + 문자열)
+}
 let z = 0
 let y = 0
 let lselect = 0
@@ -146,6 +149,17 @@ let select = 0
 OLED.init(128, 64)
 select = 1
 xyz = 1
+basic.forever(function () {
+    if (select == 1) {
+        gyro_info()
+    } else if (select == 2) {
+        gyro_bar()
+    } else if (select == 3) {
+        gyro_graph()
+    } else if (select >= 4) {
+        select = 1
+    }
+})
 basic.forever(function () {
     if (lselect == 1) {
         gyro_level()
@@ -166,18 +180,5 @@ basic.forever(function () {
         gyroi = z
     } else if (xyz >= 4) {
         xyz = 1
-    }
-})
-basic.forever(function () {
-    if (select == 1) {
-        gyro_info()
-    } else if (select == 2) {
-        gyro_bar()
-    } else if (select == 3) {
-        gyro_graph()
-    } else if (select >= 4) {
-        select = 1
-    } else {
-    	
     }
 })
